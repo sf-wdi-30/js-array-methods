@@ -1,12 +1,36 @@
+
+<!--
+Market: SF
+-->
+
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Array Methods
 
-|Learning Objectives|
-| :--- |
-| Create arrays and store them in variables |
-| Access and change information inside arrays with array methods |
-| Explain examples that use callback functions to create more flexible code |
-| Traverse arrays with `for` loops and the `forEach` iterator array method |
 
+## Why is this important?
+*This workshop is relevant to developers because:*
+
+- You will use array and array manipulations daily.
+- Understanding built-in methods and callbacks will increase the quality of your code.
+
+## What are the objectives?
+<!-- specific/measurable goal for students to achieve -->
+*After this workshop, developers will be able to:*
+
+- Create arrays and store them in variables
+- Access and change information inside arrays with array methods
+-  Explain examples that use callback functions to create more flexible code
+-  Traverse arrays with `for` loops and the `forEach` iterator array method
+
+## Where should we be now?
+<!-- call out the skills that are prerequisites -->
+*Before this workshop, developers should already be able to:*
+
+- Identify an array of elements
+- Open, edit, and save a `.js` file in Atom
+- Evaluate simple lines of code in the Chrome Developer Console or Node REPL
+
+
+---
 
 
 ##Array Method Basics##
