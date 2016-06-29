@@ -140,7 +140,7 @@ function makeSandwich(meat, cheese) {
 
 /* call makeSandwich and pass arguments to it */
 makeSandwich("turkey", "provolone");  
-//=> bread, turkey, provolone, bread
+//=> "bread, turkey, provolone, bread"
 
 ```
 
@@ -151,7 +151,7 @@ Arguments can also be passed in with their variable names.
 var favoriteMeat = "ham";
 /* call makeSandwich with favoriteMeat and "colby" */
 makeSandwich(favoriteMeat, "colby");
-//=> bread, ham, colby, bread
+//=> "bread, ham, colby, bread"
 ```
 
 We can pass other types of arguments too, including arrays and objects.
@@ -162,7 +162,7 @@ function makeBigSandwich(toppingsArray) {
 }
 
 makeBigSandwich(['ham', 'salami', 'provolone']);
-//=> bread, ham, salami, provolone, & bread
+//=> "bread, ham, salami, provolone, & bread"
 ```
 
 <br>
@@ -180,6 +180,7 @@ function add(a, b) {
 }
 
 add(4, 6);
+//=> 10
 
 ```
 
@@ -193,23 +194,25 @@ Now let's make our `add` function a little more flexible. We'd like the option t
 
 ```javascript
 
-function printResult(input) {
-  console.log("The result is: " + input);
+function toParagraph(input) {
+  return "<p>" + input + "</p>";
 }
 
-function yellResult(input) {
-	console.log("HEY! THE ANSWER IS " + input);
+function toCurrency(input) {
+  return "$" + input.toFixed(2);
 }
 
-function add(a, b, displayFunction) {
+function add(a, b, formatFunction) {
   var result = a + b;
-  /* use the displayFuction function to show the result */
-  displayFunction(result);  
-  return result;
+  return formatFunction(result);
 }
 
-add(2, 2, printResult); 
-//=> The result is: 4
+add(2, 2, toParagraph);
+//=> "<p>4</p>"
+
+add(2, 2, toCurrency);
+//=> "$4.00"
+
 ```
 
 When a function takes in another function and calls it, we say the second function is a "callback" function.  
@@ -218,11 +221,11 @@ When a function takes in another function and calls it, we say the second functi
 	<summary>
 		Which function above is a callback function?
 	</summary>
-> `displayFunction` is the name of the callback in the 		 definition of `add` above. When we actually called `add`, we gave it the specific callback function `printToConsole`. 
+The `add` function above requires three arguments to work: a number (`a`), another number (`b`), and a callback function (`formatFunction`). The 3rd argument, "formatFunction" is just a placeholder/slot for our two formatting functions: `toCurrency` and `toParagraph`, but we have the flexibility to create new formatting functions now (`toRomanNumeral`! `toFraction`!), without needing to modify `add`.
 	  
 </details>
 
-We can also use a different function as the `displayFunction`.  This gives us a lot of flexibility.
+We can also use a different function as the `formatFunction`.  This gives us a lot of flexibility.
 
 ```javascript
 function toAlert(input) {
@@ -230,8 +233,8 @@ function toAlert(input) {
 }
 
 // then calling it:
-add(8, 9, toAlert); 
-//=> alerts 17
+add(8, 9, toAlert); // **alerts 17**
+//=> undefined
 ```
 
 A common way to write this is to define the `displayFunction` function **in-line** with the main function call.
@@ -242,7 +245,8 @@ A common way to write this is to define the `displayFunction` function **in-line
 add(8, 9, function toAlert(input) {
   alert(input);
 }); 
-//=> alerts 17
+// **alerts 17**
+//=> undefined
 ```
 
 ![img](http://i.giphy.com/lUQxdO6Y7Vmx2.gif)
